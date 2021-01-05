@@ -1,1 +1,63 @@
 Iniciando mais um estudo
+
+Rest
+Maturidade de Richardson
+- Nivel 0 - Um endpoint soh
+- Nivel 1 - Vários endpoints de forma organizada. não tem preocupação com os verbos
+- Nivel 2 - Usar verbos adequados a cada situação (post, put, get e delete).
+- Nivel 3 - Uso de hypermedia controls - retorna links para navegar  (trabalhar com objetos e listas no retorno) (HATEOAS)
+
+HATEOS:
+- Constraint arquitetural de rest.
+- retorna links para navegar  
+- Facilita para os devs verem sua api e saberem quais links chamarem para cada ação.
+
+Swagger:
+- Usado para documentar api REST
+- Vc pode especificar parametros, modelo, json, retorno, etc...
+- Quem for utilizar nem precisa saber do código mesmo.
+- Um passo além do nivel 3 de maturidade de Richardson.
+
+Autenticação:
+- JWT: Jason web token para segurança
+- Client manda parametros esperando retorno da API Server, se ele é autorizado ou não, se for o api server retorna 200.
+- Se n tiver autorização, recebe um 401 - Unauthorized
+- Header, payload, verify signature (essa é a key enviada para o api server no JWT)
+
+Versionamento:
+- Remover, alterar e adicionar sem quebrar para o usuário.
+- Versionamento por URL: Subdominio, path ou querystring
+ Subdominio: Especifica a versão logo no inicio da URL - https://v1...
+ path: Especifica a versão após a base url (Mais abordada) - https://baseurl/v1/... (MAIS DEV FRIENDLY pq o dev sempre vai saber a versão ja na passagem da url)
+ querystring: Especifica a versão com uma querystring - https://baseurl/url?v=v1...
+- Versionamento por Header Param; header param incept vem a versão.
+- Versionamento por custom header param; vem um parametro com a versao (tipo api-version: 1) (MENOS DEV FRIENDLY, pq a url sempre permanece a msm, 
+deixando o cuidado de mandar o parametro com o dev)
+
+Ir além do restful:
+- Implementar limitação de requisições. (IMPORTANTE ESTUDAR DEPOIS)
+- Criar SDK, libraries. (Encapsular seus serviçoes)
+- Criar sample codes (Aplicação de exemplo pros devs verem como funciona) ou criar a documentação em mark down, pra mostrar como seria feito cada parte.
+- Se for vender sua aplicação, criar um sandbox pro seu cliente, que retorna mocks pra ele ver o produto funciona.
+
+Boas Práticas:
+- Paginar a aplicação. Serviços que retornam listagem devem ser paginádos. 
+- Configurar filtros nos serviços
+- Definir recursos lógicos (Dominios)
+- Tolerante a falhas (tratativa de excessões sem quebra do sistema)
+- Cache (tentar manter caches de informações muito requisitadas)
+- Conectividade (Facilitar a conexão com sua api)
+- Timeout (seu client n pode ficar muito tempo conectado, para não dar deadlock)
+- Documentação (tentar documentar para o swagger e HATEOS)
+- Utilizar SSL para prover mais segurança]
+- Versionamento para deixar a api mais facil de manter
+- Teste e validação (tentar automatizar testes para validar a api)
+- Api ser self-service (o próprio client pode acessar e escolher o q ele precisa para acessar sua api - SWAGGER E HATEOS )
+- Marketing para atrair mais clientes
+- Exportações (permitir q informações sejam exportadas em diferentes formatos)
+- Globalization
+- Notificações (Em casos da requisição demorar, devolver 201, avisando q a requisição será executado e ele será notificado quando tiver pronto, por email ou outra forma)
+- Limite de campos (limitar campos para evitar gargalos nos endpoints)
+- Selecionar a tecnologia mais adequada (REST, JSON, SOAP)
+
+
